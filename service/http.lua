@@ -99,7 +99,7 @@ local function read_request(data)
 
 	-- read request line
 	local b, e, ln, rq = next_line(data, pos)
-	method, url, httpver = string.match(ln, [[^(%a+)%s+([^%s]+)%s+HTTP/([%d\.]+)$]])
+	method, url, httpver = match(ln, "^(%a+)%s+([^%s]+)%s+HTTP/([%d%.]+)$")
 	if not method then return error("can't find request line") end
 	if string.find(url, "?", 1, true) then
 		path, args = string.match(url, "^([^?]+)%?(.+)$")
