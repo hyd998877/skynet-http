@@ -30,7 +30,6 @@ end
 
 function HTTP.error(fd, msg)
 	print("socket error",fd, msg)
-	close_agent(fd)
 end
 
 function HTTP.get(rq, header)
